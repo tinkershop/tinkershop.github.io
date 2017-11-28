@@ -329,3 +329,12 @@
 .m0 {
   margin: 0px;
 }
+
+.panel-footer {
+  background-color: #fff;
+}
+
+.panel-black {
+  background-color: #101010 !important;
+  color: #9d9d9d !important;
+}

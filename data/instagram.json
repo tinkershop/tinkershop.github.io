@@ -1191,12 +1191,5 @@
       "shortcode": "BaVxANUAgfO",
       "id": "17845751368204651"
     }
-  ],
-  "paging": {
-    "cursors": {
-      "before": "QVFIUjVGVTFRQXlkRXJEZA2FPbncyTTUwaTBickJBVWRqdm84V3hyNkJxZAWJrM3ZA4c3lialR3SE4zcEZAEa005RzdvVWY4TG9iRGVfYkZAiWnpWc2JwQV9TZAXpR",
-      "after": "QVFIUmIyVThqTkNoNEwyblVOWGp4eVR1MmRnVk9oTm9xNjNJcU02R3NZAdWhKSWdYaFl6TEtUQm8zM184RUJINjlNVV8zT2kzSmE3X0VUUWg2ejl2czl3M2lR"
-    },
-    "next": "https://graph.facebook.com/v2.11/17841400971875220/media?access_token=EAAZABXZCEotQsBAGDQsfTv9TCjhgPIJlJTSWLujgdU7jvnWq5mPyBPsxeDSjZB9jtCPfOzxQelFJsW5ttaoULDSjOocptDn4CanOwm7JveP2t1FAecFYeSwu0ZCXDCUE09CQAU9lUpYRRZBPrP6SxWM60xt8T4TLTeVkFYhRNeQZDZD&pretty=0&fields=caption%2Cmedia_url%2Cshortcode&limit=200&after=QVFIUmIyVThqTkNoNEwyblVOWGp4eVR1MmRnVk9oTm9xNjNJcU02R3NZAdWhKSWdYaFl6TEtUQm8zM184RUJINjlNVV8zT2kzSmE3X0VUUWg2ejl2czl3M2lR"
-  }
+  ]
 }

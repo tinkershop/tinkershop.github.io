@@ -1,6 +1,6 @@
-jsonRead();
-function jsonRead() {
-  var url = 'https://tinkershop.github.io/data/instagram.json';
+jsonReadFeedback();
+function jsonReadAll() {
+  var url = 'https://tinkershop.github.io/data/all-without-feedback.json';
   $.getJSON(url, function( data ) {
     var items = [];
     $.each( data, function( key, val ) {
@@ -25,6 +25,38 @@ function jsonRead() {
     }).prependTo( "#allTab" );
 
     var monkeyList = new List('allTab', {
+      page: 9,
+      pagination: true
+    });
+  });
+}
+
+function jsonReadFeedback() {
+  var url = 'https://tinkershop.github.io/data/feedback.json';
+  $.getJSON(url, function( data ) {
+    var items = [];
+    $.each( data, function( key, val ) {
+      $.each( val, function( key1, val1 ) {
+        items.push(
+          '<div class="col-sm-6 col-md-4">' +
+            '<div class="panel panel-default">' +
+              '<div class="panel-heading"></div>' +
+                '<div onclick="instagramData(\'https://www.instagram.com/p/'+ val1.shortcode +'\')" class="panel-body panel-instagram">' +
+                  '<img src="' + val1.media_url + '" style="width: 100%;"></img>' +
+                '</div>' +
+              '<div class="panel-footer"></div>' +
+            '</div>' +
+          '</div>'
+        );
+      });
+    });
+   
+    $( "<div/>", {
+      "class": "list",
+      html: items.join( "" )
+    }).prependTo( "#feedbackTab" );
+
+    var monkeyList = new List('feedbackTab', {
       page: 9,
       pagination: true
     });

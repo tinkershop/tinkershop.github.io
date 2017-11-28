@@ -34,29 +34,15 @@ function jsonWrite() {
   var json = JSON.stringify(obj);
   var url = './data/instagram.json';
 
-  $.postJSON(url, {param1: "hello", param2: "world"})
-    .complete(function () {
-        // Optional - fires when the operation completes, regardless of status
-    })
-    .success(function () {
-        // Optional - fires when operation completes successfully
-    })
-    .error(function () {
-        // Optional - fires when operation completes with error
+  $.getJSON(url, function( data ) {
+    var items = [];
+    $.each( data, function( key, val ) {
+      items.push( "<li id='" + key + "'>" + val + "</li>" );
     });
+   
+    $( "<ul/>", {
+      "class": "my-new-list",
+      html: items.join( "" )
+    }).appendTo( "body" );
+  });
 }
-
-(function ($) {
-    $.postJSON = function (url, data) {
-        var o = {
-            url: url,
-            type: "POST",
-            dataType: "json",
-            contentType: 'application/json; charset=utf-8'
-        };
-        if (data !== undefined) {
-            o.data = JSON.stringify(data);
-        }
-        return $.ajax(o);
-    };
-} (jQuery));

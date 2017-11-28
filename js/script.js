@@ -1,6 +1,6 @@
 jsonReadAll();
 function jsonReadAll() {
-  var url = 'https://tinkershop.github.io/data/instagram.json';
+  var url = 'https://tinkershop.github.io/data/feedback.json';
   $.getJSON(url, function( data ) {
     var items = [];
     $.each( data, function( key, val ) {

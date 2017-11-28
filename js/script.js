@@ -30,5 +30,10 @@ function jsonRead() {
       "class": "list",
       html: items.join( "" )
     }).prependTo( "#allTab" );
+    
+    var monkeyList = new List('allTab', {
+      page: 9,
+      pagination: true
+    });
   });
 }

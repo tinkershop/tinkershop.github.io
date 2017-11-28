@@ -1,7 +1,8 @@
 jsonReadAll();
 function jsonReadAll() {
-  var url = 'https://tinkershop.github.io/data/feedback.json';
+  var url = 'https://tinkershop.github.io/data/all.json';
   $.getJSON(url, function( data ) {
+    console.log(data);
     var items = [];
     $.each( data, function( key, val ) {
       $.each( val, function( key1, val1 ) {

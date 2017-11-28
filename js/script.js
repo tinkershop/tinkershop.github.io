@@ -1,4 +1,7 @@
 jsonReadAll();
+$('#cFeedback').click(function() {
+  jsonReadFeedback();
+});
 function jsonReadAll() {
   var url = 'https://tinkershop.github.io/data/allwithoutfeedback.json';
   $.getJSON(url, function( data ) {
@@ -62,6 +65,7 @@ function jsonReadFeedback() {
       pagination: true
     });
   });
+  $('#cFeedback').unbind( "click" );
 }
 
 function instagramData(url) {

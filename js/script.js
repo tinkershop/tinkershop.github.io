@@ -1,6 +1,6 @@
 jsonReadAll();
 function jsonReadAll() {
-  var url = 'https://tinkershop.github.io/data/all-without-feedback.json';
+  var url = 'https://tinkershop.github.io/data/allwithoutfeedback.json';
   $.getJSON(url, function( data ) {
     console.log(data);
     var items = [];

@@ -2,6 +2,14 @@ jsonReadAll();
 $('#cFeedback').click(function() {
   jsonReadFeedback();
 });
+
+$('#nextAll').click(function() {
+  nextAlltab();
+});
+$('#nextFeedback').click(function() {
+  nextFeedbacktab();
+});
+
 var items = [];
 var feeditems = [];
 var allcount = 0;
@@ -44,6 +52,9 @@ function jsonReadAll() {
 function nextAlltab() {
   allcount++;
   $('.list').append(items[allcount]);
+  if (items.length <= allcount+1) {
+    document.getElementById('nextAll').outerHTML = '';
+  }
 }
 
 function jsonReadFeedback() {
@@ -85,6 +96,9 @@ function jsonReadFeedback() {
 function nextFeedbacktab() {
   feedbackcount++;
   $('.feedBackList').append(feeditems[feedbackcount]);
+  if (feeditems.length <= feedbackcount+1) {
+    document.getElementById('nextFeedback').outerHTML = '';
+  }
 }
 
 function instagramData(url) {

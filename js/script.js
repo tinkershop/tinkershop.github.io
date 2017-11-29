@@ -2,14 +2,21 @@ jsonReadAll();
 $('#cFeedback').click(function() {
   jsonReadFeedback();
 });
+var items = [];
+var feeditems = [];
+var allcount = 0;
+var feedbackcount = 0;
 function jsonReadAll() {
   var url = 'https://tinkershop.github.io/data/allwithoutfeedback.json';
   $.getJSON(url, function( data ) {
-    console.log(data);
-    var items = [];
+    var count1 = -1;
+    var count2 = 0;
     $.each( data, function( key, val ) {
       $.each( val, function( key1, val1 ) {
-        items.push(
+        if (count2 == 0 || count2 % 9 == 0) {
+          items[++count1] = [];
+        }
+        items[count1][count2] =
           '<div class="col-sm-6 col-md-4">' +
             '<div class="panel panel-default">' +
               '<div class="panel-heading"></div>' +
@@ -18,30 +25,38 @@ function jsonReadAll() {
                 '</div>' +
               '<div class="panel-footer"></div>' +
             '</div>' +
-          '</div>'
-        );
+          '</div>';
+        count2++;
       });
     });
-   
     $( "<div/>", {
       "class": "list",
-      html: items.join( "" )
+      html: items[0].join( "" )
     }).prependTo( "#allTab" );
 
-    var monkeyList = new List('allTab', {
-      page: 9,
-      pagination: true
-    });
+    // var monkeyList = new List('allTab', {
+    //   page: 9,
+    //   pagination: true
+    // });
   });
+}
+
+function nextAlltab() {
+  allcount++;
+  $('.list').append(items[allcount]);
 }
 
 function jsonReadFeedback() {
   var url = 'https://tinkershop.github.io/data/feedback.json';
   $.getJSON(url, function( data ) {
-    var items = [];
+    var count1 = -1;
+    var count2 = 0;
     $.each( data, function( key, val ) {
       $.each( val, function( key1, val1 ) {
-        items.push(
+        if (count2 == 0 || count2 % 9 == 0) {
+          feeditems[++count1] = [];
+        }
+        feeditems[count1][count2] =
           '<div class="col-sm-6 col-md-4">' +
             '<div class="panel panel-default">' +
               '<div class="panel-heading"></div>' +
@@ -50,22 +65,26 @@ function jsonReadFeedback() {
                 '</div>' +
               '<div class="panel-footer"></div>' +
             '</div>' +
-          '</div>'
-        );
+          '</div>';
+        count2++;
       });
     });
-   
     $( "<div/>", {
-      "class": "list",
-      html: items.join( "" )
+      "class": "feedBackList",
+      html: feeditems[0].join( "" )
     }).prependTo( "#feedbackTab" );
 
-    var monkeyList = new List('feedbackTab', {
-      page: 9,
-      pagination: true
-    });
+    // var monkeyList = new List('feedbackTab', {
+    //   page: 9,
+    //   pagination: true
+    // });
   });
   $('#cFeedback').unbind( "click" );
+}
+
+function nextFeedbacktab() {
+  feedbackcount++;
+  $('.feedBackList').append(feeditems[feedbackcount]);
 }
 
 function instagramData(url) {

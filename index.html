@@ -4,267 +4,163 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
-      <title>Tinker Shop CDO</title>
-
-      <link href="./css/app.css" rel="stylesheet">
-      <link href="./css/common.css" rel="stylesheet">
-      <link href="./css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
-<!--       <nav class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
+    
+    <div id="board-engine-wrapper" style="background: #000;">
 
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-              <span class="sr-only">Toggle Navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </button>
+        <form id="board-engine-1" class="board-engine"
+              method="get" action="" style="display: inline;">
 
-          <a class="navbar-brand" href="./">
-            Tinker Shop CDO
-          </a>
-        </div>
+            <div class="board-engine__form relative">
+                <div class="padding--sml">
+                    <div class="media media--middle media--med media--auto board-engine__heading">
+                        <div class="media__item">
+                            <i class="icon-board-engine board-engine__heading__icon"></i>
+                        </div>
 
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
-
-          <ul class="nav navbar-nav">
-              &nbsp;
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="panel panel-default">
-            <div class="panel-heading panel-black">Categories</div>
-            <div class="panel-body">
-              <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">Tops</a></li>
-                <li><a href="#">Pants / Shorts</a></li>
-                <li><a href="#">Sunnies / Specs</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-9">
-          <div class="panel with-nav-tabs panel-default">
-            <div class="panel-heading panel-black">
-              <ul class="nav nav-tabs">
-                <li class="active"><a href="#allTab" data-toggle="tab">All</a></li>
-                <li><a id="cWomen" href="#womenTab" data-toggle="tab">Women</a></li>
-                <li><a id="cMen" href="#menTab" data-toggle="tab">Men</a></li>
-                <li><a id="cUnisex" href="#unisexTab" data-toggle="tab">Unisex</a></li>
-                <li><a id="cFeedback" href="#feedbackTab" data-toggle="tab">Feedback</a></li>
-              </ul>
-            </div>
-            <div id="feedCtrlElem" class="panel-body" ng-controller="feedCtrl">
-              <div class="tab-content">
-                <div class="tab-pane fade in active" id="allTab">
-                  
-                  <div class="row" align="center">
-                      <button id="nextAll" class="btn btn-primary">Load More</button>
-                  </div>
-                </div>
-                <div class="tab-pane fade" id="womenTab">
-                    
-                </div>
-                <div class="tab-pane fade" id="menTab">
-                    
-                </div>
-                <div class="tab-pane fade" id="unisexTab">
-                    
-                </div>
-                <div class="tab-pane fade" id="feedbackTab">
-
-                  <div class="row" align="center">
-                      <button id="nextFeedback" class="btn btn-primary">Load More</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="modal fade" id="modal-dialog">
-                <div class="modal-dialog modal-size">
-                  <div class="modal-content panel-default">
-                    <div class="modal-header panel-heading panel-black">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times-circle" aria-hidden="true" style="font-size: 30px; color: #fff; float: right; margin-top: -4px;"></i></button>
-                      <h4 class="modal-title"></h4>
+                        <div class="media__body">
+                            <span class="board-engine__heading__label">Volume Calculator</span>
+                            Find your perfect volume
+                        </div>
                     </div>
-                    <div class="modal-body" id="modalBody"></div>
-                  </div>
+
+                    <div class="row row--lge board-engine__controls">
+
+                        <!-- weight -->
+                        <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
+                            <span class="board-engine__label">
+                                I weigh: <span class="option-label-weight nowrap"></span>
+                            </span>
+                            <select name="weight" id="options[weight]" class="select-slider js-link-label required-entry boardengineSelect"
+                                data-link=".option-label-weight" data-labelval="true">
+                                <option value="" data-label="?">?</option>
+                             </select>
+                        </div>
+
+                        <!-- height -->
+                        <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
+                            <span class="board-engine__label">
+                                I'm this tall: <span class="option-label-height nowrap"></span>
+                            </span>
+                            <select name="height" id="options[height]" class="select-slider js-link-label required-entry boardengineSelect "
+                                data-link=".option-label-height" data-labelval="true">
+                                <option value="" data-label="?">?</option>
+                            </select>
+                        </div>
+
+                        <!-- age -->
+                        <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
+                            <span class="board-engine__label">
+                                I'm: <span class="option-label-age nowrap"></span>
+                            </span>
+                            <select name="age" id="options[age]" class="select-slider js-link-label required-entry boardengineSelect"data-link=".option-label-age" data-labelval="true"  >
+                                <option value="" data-label="?">?</option>
+                            </select>
+                        </div>
+
+                        <!-- fitness -->
+                         <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
+                            <span class="board-engine__label">
+                                My fitness level is: <span class="option-label-fitness small nowrap"></span>
+                            </span>
+                            <select name="fitness" id="options[fitness]" class="select-slider js-link-label required-entry boardengineSelect"
+                                data-link=".option-label-fitness" data-labelval="true">
+                                <option value="" data-label="?">?</option>
+                            </select>
+                        </div>
+
+                        <!-- frequency -->
+                        <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
+                            <span class="board-engine__label">
+                                I ride: <span class="option-label-frequency nowrap"></span>
+                            </span>
+                            <select name="frequency" id="options[frequency]" class="select-slider js-link-label required-entry boardengineSelect "
+                                data-link=".option-label-frequency" data-labelval="true">
+                                <option value="" data-label="?">?</option>
+                            </select>
+                        </div>
+
+                         <!-- skill -->
+                        <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
+                                <span class="board-engine__label">
+                                I rate my skills:
+                                <span class="option-label-skill small nowrap"></span>
+                            </span>
+                            <select name="level"id="options[level]" class=" select-slider js-link-label required-entry boardengineSelect"
+                              data-link=".option-label-skill" data-labelval="true">
+                              <option value="" data-label="?">?</option>
+                            </select>
+                        </div>
+
+                        <!-- wavetype -->
+                        <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
+                                <span class="board-engine__label">
+                                Wave type:
+                                <span class="option-label-wave-type small nowrap"></span>
+                            </span>
+                            <select name="wave-type"id="options[type]" class=" select-slider js-link-label required-entry boardengineSelect"
+                                data-link=".option-label-wave-type" data-labelval="true">
+                                <option value="" data-label="?">?</option>
+                            </select>
+                        </div>
+
+                        <!-- wavesize -->
+                        <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
+                                <span class="board-engine__label">
+                                Wave size:
+                                <span class="option-label-wave-size small nowrap"></span>
+                            </span>
+                            <select name="wave-size"id="options[size]" class=" select-slider js-link-label required-entry boardengineSelect"
+                                data-link=".option-label-wave-size" data-labelval="true">
+                                <option value="" data-label="?">?</option>
+                            </select>
+                        </div>
+
+                        <!-- gender -->
+                        <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
+                                <span class="board-engine__label">
+                                Gender:
+                                <span class="option-label-gender small nowrap"></span>
+                            </span>
+                            <select name="gender"id="options[gender]" class=" select-slider js-link-label required-entry boardengineSelect"
+                                data-link=".option-label-gender" data-labelval="true">
+                                <option value="" data-label="?">?</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col col--6of12-m push--3of12-m">
+                            <button type="submit" class="board-engine__button button button--progress">Find my perfect Volume</button>
+                        </div>
+
+                        <div class="col col--3of12-m text--right">
+                            <a href="https://www.cavewire.com/" target="_blank"
+                               class="button button--unstyled poweredby margin-top">
+                                <span class="nocap">Powered by </span>
+                                <img class="cavewire-logo" alt="Cavewire Logo">
+                            </a>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
+        </form>
     </div>
 
-    <script type="text/javascript" src="./js/app.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-    <script type="text/javascript" src="./js/script.js"></script> -->
-
-<div id="board-engine-wrapper" style="background: #000;">
-
-    <form id="board-engine-1" class="board-engine"
-          method="get" action="" style="display: inline;">
-
-        <div class="board-engine__form relative">
-            <div class="padding--sml">
-                <div class="media media--middle media--med media--auto board-engine__heading">
-                    <div class="media__item">
-                        <i class="icon-board-engine board-engine__heading__icon"></i>
-                    </div>
-
-                    <div class="media__body">
-                        <span class="board-engine__heading__label">Volume Calculator</span>
-                        Find your perfect volume
-                    </div>
-                </div>
-
-                <div class="row row--lge board-engine__controls">
-
-                    <!-- weight -->
-                    <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
-                        <span class="board-engine__label">
-                            I weigh: <span class="option-label-weight nowrap"></span>
-                        </span>
-                        <select name="weight" id="options[weight]" class="select-slider js-link-label required-entry boardengineSelect"
-                            data-link=".option-label-weight" data-labelval="true">
-                            <option value="" data-label="?">?</option>
-                         </select>
-                    </div>
-                    
-                    <!-- height -->
-                    <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
-                        <span class="board-engine__label">
-                            I'm this tall: <span class="option-label-height nowrap"></span>
-                        </span>
-                        <select name="height" id="options[height]" class="select-slider js-link-label required-entry boardengineSelect "
-                            data-link=".option-label-height" data-labelval="true">
-                            <option value="" data-label="?">?</option>
-                        </select>
-                    </div>
-                    
-                    <!-- age -->
-                    <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
-                        <span class="board-engine__label">
-                            I'm: <span class="option-label-age nowrap"></span>
-                        </span>
-                        <select name="age" id="options[age]" class="select-slider js-link-label required-entry boardengineSelect"data-link=".option-label-age" data-labelval="true"  >
-                            <option value="" data-label="?">?</option>
-                        </select>
-                    </div>
-
-                    <!-- fitness -->
-                     <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
-                        <span class="board-engine__label">
-                            My fitness level is: <span class="option-label-fitness small nowrap"></span>
-                        </span>
-                        <select name="fitness" id="options[fitness]" class="select-slider js-link-label required-entry boardengineSelect"
-                            data-link=".option-label-fitness" data-labelval="true">
-                            <option value="" data-label="?">?</option>
-                        </select>
-                    </div>
-                   
-                    <!-- frequency -->
-                    <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
-                        <span class="board-engine__label">
-                            I ride: <span class="option-label-frequency nowrap"></span>
-                        </span>
-                        <select name="frequency" id="options[frequency]" class="select-slider js-link-label required-entry boardengineSelect "
-                            data-link=".option-label-frequency" data-labelval="true">
-                            <option value="" data-label="?">?</option>
-                        </select>
-                    </div>
-                    
-                     <!-- skill -->
-                    <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
-                            <span class="board-engine__label">
-                            I rate my skills:
-                            <span class="option-label-skill small nowrap"></span>
-                        </span>
-                        <select name="level"id="options[level]" class=" select-slider js-link-label required-entry boardengineSelect"
-                          data-link=".option-label-skill" data-labelval="true">
-                          <option value="" data-label="?">?</option>
-                        </select>
-                    </div>
-
-                    <!-- wavetype -->
-                    <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
-                            <span class="board-engine__label">
-                            Wave type:
-                            <span class="option-label-wave-type small nowrap"></span>
-                        </span>
-                        <select name="wave-type"id="options[type]" class=" select-slider js-link-label required-entry boardengineSelect"
-                            data-link=".option-label-wave-type" data-labelval="true">
-                            <option value="" data-label="?">?</option>
-                        </select>
-                    </div>
-
-                    <!-- wavesize -->
-                    <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
-                            <span class="board-engine__label">
-                            Wave size:
-                            <span class="option-label-wave-size small nowrap"></span>
-                        </span>
-                        <select name="wave-size"id="options[size]" class=" select-slider js-link-label required-entry boardengineSelect"
-                            data-link=".option-label-wave-size" data-labelval="true">
-                            <option value="" data-label="?">?</option>
-                        </select>
-                    </div>
-
-                    <!-- gender -->
-                    <div class="col col--2of10-l col--4of12-m col--6of12-sm relative">
-                            <span class="board-engine__label">
-                            Gender:
-                            <span class="option-label-gender small nowrap"></span>
-                        </span>
-                        <select name="gender"id="options[gender]" class=" select-slider js-link-label required-entry boardengineSelect"
-                            data-link=".option-label-gender" data-labelval="true">
-                            <option value="" data-label="?">?</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col col--6of12-m push--3of12-m">
-                        <button type="submit" class="board-engine__button button button--progress">Find my perfect Volume</button>
-                    </div>
-
-                    <div class="col col--3of12-m text--right">
-                        <a href="https://www.cavewire.com/" target="_blank"
-                           class="button button--unstyled poweredby margin-top">
-                            <span class="nocap">Powered by </span>
-                            <img class="cavewire-logo" alt="Cavewire Logo">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-
-<div class="board-engine__loader"></div>
-
-<link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/icon-font.css">
-<link rel="stylesheet" type="text/css" href="./css/jquery-ui.min.css">
-<link rel="stylesheet" type="text/css" href="./css/volumecalculator.css">
-
-<script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="./js/utils.js"></script>
-<script type="text/javascript" src="./js/jquery-ui.js"></script>
-<script type="text/javascript" src="./js/volumecalculator.js"></script>
+    <div class="board-engine__loader"></div>
 
   </body>
+  
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="./css/icon-font.css">
+  <link rel="stylesheet" type="text/css" href="./css/jquery-ui.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/volumecalculator.css">
+
+  <script type="text/javascript" src="./js/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="./js/utils.js"></script>
+  <script type="text/javascript" src="./js/jquery-ui.js"></script>
+  <script type="text/javascript" src="./js/volumecalculator.js"></script>
+  
 </html>
